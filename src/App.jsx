@@ -20,12 +20,13 @@ const App = () => {
   const [showModal, setShoModal] = useState(false);
   const [arrayOfMovies, setArrayOfMovies] = useState(MoviesArray);
 
-  const handleInput = (searchTerm, setSearchedMoviesArray) => {
+  const handleInput = (searchTerm, setArrayOfMovies) => {
     const filteredMovies = MoviesArray.filter((item) =>
       item?.title.toLowerCase().includes(searchTerm.toLowerCase())
     );
-
-    setSearchedMoviesArray(filteredMovies);
+    console.log(filteredMovies)
+    setArrayOfMovies(filteredMovies);
+    console.log(arrayOfMovies)
   };
 
   const {
@@ -88,8 +89,10 @@ const App = () => {
                 allowClear
                 enterButton="Search"
                 size="large"
-                onChange={(event) =>
-                  handleInput(event.target.value, setSearchedMoviesArray)
+                onChange={(event) =>{
+                  handleInput(event.target.value, setArrayOfMovies)
+                  console.log("cambiao")  
+                }
                 }
                 // onSearch={onSearch}
               />
