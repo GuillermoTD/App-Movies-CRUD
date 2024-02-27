@@ -1,0 +1,12 @@
+*{
+  padding:0;
+  margin:0;
+  box-sizing: border-box;
+}
+
+.gridMovies{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(18rem,1fr));
+  place-items: center;
+}
+
