@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState, useContext, useCallback } from "react";
 import { Layout, Menu, theme } from "antd";
 import "../node_modules/remixicon/fonts/remixicon.css";
 // import MoviesArray from "./MovieArray";
@@ -20,14 +20,14 @@ const App = () => {
   const [showModal, setShoModal] = useState(false);
   const [arrayOfMovies, setArrayOfMovies] = useState(MoviesArray);
 
-  const handleInput = (searchTerm, setArrayOfMovies) => {
+  const handleInput = useCallback ((searchTerm, setArrayOfMovies) => {
     const filteredMovies = MoviesArray.filter((item) =>
       item?.title.toLowerCase().includes(searchTerm.toLowerCase())
     );
     console.log(filteredMovies)
     setArrayOfMovies(filteredMovies);
     console.log(arrayOfMovies)
-  };
+  },[arrayOfMovies])
 
   const {
     token: { colorBgContainer },
